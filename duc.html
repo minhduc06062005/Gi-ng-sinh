@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giáng Sinh Này: Có Tên Miền Là Có "TẤT"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #0f2b3d, #1e5a7e);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            font-size: 1em;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+        header.hero {
+            height: 100vh;
+            background: url('https://i.fbcd.co/products/original/light-preview-design-bundle-plus-program-2fee45424da09f9c8c92b343c01af14fac89c274835b4cb3d1262040d227cf63.jpg') center/cover no-repeat; /* Thay bằng hình tất Giáng sinh chứa icon công nghệ */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        header.hero h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 10px #ff0000;
+        }
+        header.hero p {
+            font-size: 1.8rem;
+            margin: 20px 0;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff0000;
+            
+        }
+        .cta-btn {
+            background: #ff0000;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        #pain { background: #c31432; }
+        #solution { background: #240b36; }
+        #minigame {
+            background: #11993e;
+            position: relative;
+        }
+        #tree-container {
+            position: relative;
+            height: 400px;
+            margin: 40px auto;
+            width: 300px;
+        }
+        #tree {
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 300px solid #0f7b0f;
+            margin: auto;
+            transition: transform 0.5s;
+        }
+        #tree.shake { animation: shake 0.5s; }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-10px); }
+            100% { transform: translateX(0); }
+        }
+        .gift {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #ff0000;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            animation: fall-gift 3s linear;
+            opacity: 0;
+        }
+        @keyframes fall-gift {
+            to { top: 400px; opacity: 1; }
+        }
+        #result {
+            margin-top: 30px;
+            font-size: 2rem;
+            min-height: 60px;
+        }
+        #countdown {
+            font-size: 2rem;
+            margin: 20px 0;
+            color: #ffff00;
+        }
+        .portfolio-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .portfolio-grid img {
+            width: 300px;
+            border: 5px solid #fff;
+            border-radius: 10px;
+        }
+        #testimonials {
+            background: #740a0a;
+        }
+        footer {
+            background: #000;
+            padding: 40px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            header.hero h1 { font-size: 2.5rem; }
+            header.hero p { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tuyết rơi -->
+    <script>
+        for(let i=0; i<100; i++) {
+            let snow = document.createElement('div');
+            snow.className = 'snowflake';
+            snow.innerHTML = '❄';
+            snow.style.left = Math.random()*100 + 'vw';
+            snow.style.animationDuration = Math.random()*5 + 5 + 's';
+            snow.style.opacity = Math.random();
+            snow.style.fontSize = Math.random()*10 + 10 + 'px';
+            document.body.appendChild(snow);
+        }
+    </script>
+
+    <!-- Section 1: Hero Banner -->
+    <header class="hero" id="hero">
+        <h1>GIÁNG SINH NÀY: CÓ TÊN MIỀN LÀ CÓ "TẤT"</h1>
+        <p>Sở hữu định danh số .id.vn - Mở khóa mọi cơ hội nghề nghiệp, thương hiệu, uy tín.</p>
+        <button class="cta-btn" onclick="document.getElementById('minigame').scrollIntoView({behavior: 'smooth'});">Nhận "Tất" của tôi ngay!</button>
+    </header>
+
+    <!-- Section 2: Pain Point -->
+    <section id="pain">
+        <h2>Bạn đang thiếu "TẤT" để giữ ấm sự nghiệp?</h2>
+        <p>Năm mới sắp đến, bạn vẫn gửi CV file PDF nhàm chán? Chưa có nơi lưu trữ Portfolio cá nhân chuyên nghiệp?<br>Bạn đang "đi chân đất" trong thế giới số!</p>
+    </section>
+
+    <!-- Section 3: Solution -->
+    <section id="solution">
+        <h2>.id.vn - Định danh uy tín cho sinh viên & người đi làm</h2>
+        <p>Tên miền cá nhân .id.vn giúp bạn có website riêng: CV online, Portfolio đẹp lung linh, tăng cơ hội việc làm.</p>
+        <div class="portfolio-grid">
+            <img src="https://colorlib.com/wp/wp-content/uploads/sites/2/kelsey-ohalloran-service-website.jpg" alt="Mẫu portfolio 1">
+            <img src="https://weblium.com/blog/wp-content/uploads/2019/01/image1-2-1000x506.png" alt="Mẫu portfolio 2">
+            <img src="https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2024/09/Dalya-Baron-homepage-1024x577.png" alt="Mẫu portfolio 3">
+        </div>
+    </section>
+
+    <!-- Section 4: Minigame & Countdown -->
+    <section id="minigame">
+        <h2>Rung cây thông - Nhận TẤT thần kỳ!</h2>
+        <p>Bấm vào cây thông để rung và nhận quà ngẫu nhiên!</p>
+        <div id="countdown">Ưu đãi Giáng sinh kết thúc sau: <span id="timer">00:00:00</span></div>
+        <div id="tree-container">
+            <div id="tree"></div>
+        </div>
+        <button class="cta-btn" onclick="shakeTree()">Rung cây thông 🎄</button>
+        <div id="result"></div>
+    </section>
+
+    <!-- Section 5: Testimonial -->
+    <section id="testimonials">
+        <h2>Feedback từ các bạn đã sở hữu .id.vn</h2>
+        <p>"Nhờ tên miền .id.vn, mình có portfolio riêng và xin việc dễ dàng hơn!" - Sinh viên IT</p>
+        <p>"Website cá nhân giúp mình nổi bật, nhận nhiều job freelance!" - Freelancer</p>
+        <!-- Thêm testimonial thật sau -->
+    </section>
+
+    <!-- Section 6: Footer CTA -->
+    <footer>
+        <h2>Đăng ký tên miền .id.vn ngay hôm nay!</h2>
+        <button class="cta-btn"><a href="https://id.vn/dang-ky" style="color:#fff; text-decoration:none;">Đăng ký ngay</a></button> <!-- Thay link đăng ký thật -->
+        <p>#CoTenMienCoTat #idvn</p>
+    </footer>
+
+    <script>
+        // Countdown đến 26/12/2025 23:59:59
+        const endDate = new Date('2025-12-26T23:59:59').getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = endDate - now;
+            if (distance < 0) {
+                document.getElementById('timer').innerHTML = 'Đã kết thúc!';
+                return;
+            }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('timer').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+
+        // Minigame: Rung cây và rơi quà random
+        const gifts = [
+            {icon: '🎫', text: 'Voucher giảm 50% tên miền .id.vn!'},
+            {icon: '📘', text: 'Ebook: Cách viết CV online chuẩn ATS'},
+            {icon: '🎨', text: 'Template Landing Page Giáng sinh miễn phí'},
+            {icon: '🧦', text: 'Giải đặc biệt: Đôi tất thật in logo .id.vn!'}
+        ];
+
+        function shakeTree() {
+            const tree = document.getElementById('tree');
+            tree.classList.add('shake');
+            setTimeout(() => tree.classList.remove('shake'), 500);
+
+            const container = document.getElementById('tree-container');
+            const randomGift = gifts[Math.floor(Math.random() * gifts.length)];
+            const giftEl = document.createElement('div');
+            giftEl.className = 'gift';
+            giftEl.style.left = Math.random() * 200 + 50 + 'px';
+            giftEl.innerHTML = randomGift.icon;
+            container.appendChild(giftEl);
+
+            setTimeout(() => {
+                document.getElementById('result').innerHTML = `<strong>Chúc mừng! Bạn nhận được: ${randomGift.text}</strong>`;
+                giftEl.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
