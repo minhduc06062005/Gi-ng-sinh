@@ -25,7 +25,8 @@
         }
         header.hero {
             height: 100vh;
-            background: url('https://i.fbcd.co/products/original/light-preview-design-bundle-plus-program-2fee45424da09f9c8c92b343c01af14fac89c274835b4cb3d1262040d227cf63.jpg') center/cover no-repeat; /* Thay bằng hình tất Giáng sinh chứa icon công nghệ */
+            /* Background Giáng sinh mới đẹp hơn */
+            background: url('https://thumbs.dreamstime.com/b/holiday-red-green-christmas-lights-illustration-snow-tree-outdoor-vibrant-magical-winter-373898793.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -33,16 +34,24 @@
             text-align: center;
             padding: 0 20px;
         }
+        header.hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Overlay để chữ nổi hơn */
+        }
+        header.hero h1, header.hero p, header.hero .cta-btn {
+            position: relative;
+            z-index: 1;
+        }
         header.hero h1 {
             font-size: 4rem;
-            text-shadow: 0 0 10px #ff0000;
+            text-shadow: 0 0 15px #ff0000, 0 0 20px #fff;
         }
         header.hero p {
             font-size: 1.8rem;
             margin: 20px 0;
-            color: #ffffff;
             text-shadow: 0 0 10px #ff0000;
-            
         }
         .cta-btn {
             background: #ff0000;
@@ -52,7 +61,11 @@
             border-radius: 50px;
             font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .cta-btn:hover {
+            transform: scale(1.1);
         }
         section {
             padding: 80px 20px;
@@ -61,113 +74,123 @@
         #pain { background: #c31432; }
         #solution { background: #240b36; }
         #minigame {
-            background: #11993e;
+            background: linear-gradient(to bottom, #11993e, #0a6d2b);
             position: relative;
+            overflow: hidden;
         }
         #tree-container {
             position: relative;
-            height: 400px;
+            height: 550px;
             margin: 40px auto;
-            width: 300px;
+            width: 400px;
         }
         #tree {
-            width: 0;
-            height: 0;
-            border-left: 150px solid transparent;
-            border-right: 150px solid transparent;
-            border-bottom: 300px solid #0f7b0f;
-            margin: auto;
+            background: url('https://png.pngtree.com/png-vector/20251104/ourlarge/pngtree-lighting-christmas-tree-png-image_17900403.webp') center/contain no-repeat;
+            height: 100%;
+            width: 100%;
             transition: transform 0.5s;
         }
-        #tree.shake { animation: shake 0.5s; }
+        #tree.shake { animation: shake 0.8s ease-in-out; }
         @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-            75% { transform: translateX(-10px); }
-            100% { transform: translateX(0); }
+            0% { transform: translateX(0) rotate(0); }
+            10% { transform: translateX(-10px) rotate(-2deg); }
+            20% { transform: translateX(10px) rotate(2deg); }
+            30% { transform: translateX(-10px) rotate(-2deg); }
+            40% { transform: translateX(10px) rotate(2deg); }
+            50% { transform: translateX(0) rotate(0); }
+            60% { transform: translateX(-5px) rotate(-1deg); }
+            70% { transform: translateX(5px) rotate(1deg); }
+            80% { transform: translateX(-5px) rotate(-1deg); }
+            90% { transform: translateX(5px) rotate(1deg); }
+            100% { transform: translateX(0) rotate(0); }
         }
         .gift {
             position: absolute;
-            width: 50px;
-            height: 50px;
-            background: #ff0000;
-            color: #fff;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff0000, #ff4444);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            animation: fall-gift 3s linear;
+            font-size: 2rem;
             opacity: 0;
+            animation: fall-gift 4s ease-in forwards;
+            pointer-events: none;
         }
+        .gift::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 30px;
+            background: #ffd700;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        .gift.red { background: linear-gradient(45deg, #ff0000, #ff6666); }
+        .gift.green { background: linear-gradient(45deg, #11993e, #22cc66); }
+        .gift.gold { background: linear-gradient(45deg, #ffd700, #ffff66); }
         @keyframes fall-gift {
-            to { top: 400px; opacity: 1; }
+            0% { opacity: 0; transform: translateY(-50px) rotate(0) scale(0.5); }
+            20% { opacity: 1; transform: translateY(50px) rotate(180deg) scale(1); }
+            100% { opacity: 1; transform: translateY(500px) rotate(720deg) scale(1); }
         }
         #result {
             margin-top: 30px;
             font-size: 2rem;
             min-height: 60px;
+            color: #ffff00;
+            text-shadow: 0 0 10px #ff0000;
         }
         #countdown {
             font-size: 2rem;
             margin: 20px 0;
             color: #ffff00;
-        }
-        .portfolio-grid {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            text-shadow: 0 0 10px #000;
         }
         .portfolio-grid img {
             width: 300px;
             border: 5px solid #fff;
             border-radius: 10px;
-        }
-        #testimonials {
-            background: #740a0a;
-        }
-        footer {
-            background: #000;
-            padding: 40px;
-            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
         @media (max-width: 768px) {
             header.hero h1 { font-size: 2.5rem; }
             header.hero p { font-size: 1.2rem; }
+            #tree-container { width: 300px; height: 450px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Tuyết rơi -->
+    <!-- Tuyết rơi (tăng số lượng cho đẹp) -->
     <script>
-        for(let i=0; i<100; i++) {
+        for(let i=0; i<150; i++) {
             let snow = document.createElement('div');
             snow.className = 'snowflake';
-            snow.innerHTML = '❄';
+            snow.innerHTML = Math.random() > 0.5 ? '❄' : '✨';
             snow.style.left = Math.random()*100 + 'vw';
-            snow.style.animationDuration = Math.random()*5 + 5 + 's';
-            snow.style.opacity = Math.random();
-            snow.style.fontSize = Math.random()*10 + 10 + 'px';
+            snow.style.animationDuration = Math.random()*8 + 6 + 's';
+            snow.style.opacity = Math.random() * 0.8 + 0.2;
+            snow.style.fontSize = Math.random()*15 + 10 + 'px';
             document.body.appendChild(snow);
         }
     </script>
 
-    <!-- Section 1: Hero Banner -->
     <header class="hero" id="hero">
         <h1>GIÁNG SINH NÀY: CÓ TÊN MIỀN LÀ CÓ "TẤT"</h1>
         <p>Sở hữu định danh số .id.vn - Mở khóa mọi cơ hội nghề nghiệp, thương hiệu, uy tín.</p>
         <button class="cta-btn" onclick="document.getElementById('minigame').scrollIntoView({behavior: 'smooth'});">Nhận "Tất" của tôi ngay!</button>
     </header>
 
-    <!-- Section 2: Pain Point -->
     <section id="pain">
         <h2>Bạn đang thiếu "TẤT" để giữ ấm sự nghiệp?</h2>
         <p>Năm mới sắp đến, bạn vẫn gửi CV file PDF nhàm chán? Chưa có nơi lưu trữ Portfolio cá nhân chuyên nghiệp?<br>Bạn đang "đi chân đất" trong thế giới số!</p>
     </section>
 
-    <!-- Section 3: Solution -->
     <section id="solution">
         <h2>.id.vn - Định danh uy tín cho sinh viên & người đi làm</h2>
         <p>Tên miền cá nhân .id.vn giúp bạn có website riêng: CV online, Portfolio đẹp lung linh, tăng cơ hội việc làm.</p>
@@ -178,7 +201,6 @@
         </div>
     </section>
 
-    <!-- Section 4: Minigame & Countdown -->
     <section id="minigame">
         <h2>Rung cây thông - Nhận TẤT thần kỳ!</h2>
         <p>Bấm vào cây thông để rung và nhận quà ngẫu nhiên!</p>
@@ -190,23 +212,20 @@
         <div id="result"></div>
     </section>
 
-    <!-- Section 5: Testimonial -->
     <section id="testimonials">
         <h2>Feedback từ các bạn đã sở hữu .id.vn</h2>
         <p>"Nhờ tên miền .id.vn, mình có portfolio riêng và xin việc dễ dàng hơn!" - Sinh viên IT</p>
         <p>"Website cá nhân giúp mình nổi bật, nhận nhiều job freelance!" - Freelancer</p>
-        <!-- Thêm testimonial thật sau -->
     </section>
 
-    <!-- Section 6: Footer CTA -->
     <footer>
         <h2>Đăng ký tên miền .id.vn ngay hôm nay!</h2>
-        <button class="cta-btn"><a href="https://id.vn/dang-ky" style="color:#fff; text-decoration:none;">Đăng ký ngay</a></button> <!-- Thay link đăng ký thật -->
+        <button class="cta-btn"><a href="https://id.vn/dang-ky" style="color:#fff; text-decoration:none;">Đăng ký ngay</a></button>
         <p>#CoTenMienCoTat #idvn</p>
     </footer>
 
     <script>
-        // Countdown đến 26/12/2025 23:59:59
+        // Countdown
         const endDate = new Date('2025-12-26T23:59:59').getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -222,31 +241,38 @@
             document.getElementById('timer').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }, 1000);
 
-        // Minigame: Rung cây và rơi quà random
+        // Minigame
         const gifts = [
-            {icon: '🎫', text: 'Voucher giảm 50% tên miền .id.vn!'},
-            {icon: '📘', text: 'Ebook: Cách viết CV online chuẩn ATS'},
-            {icon: '🎨', text: 'Template Landing Page Giáng sinh miễn phí'},
-            {icon: '🧦', text: 'Giải đặc biệt: Đôi tất thật in logo .id.vn!'}
+            {icon: '🎫', text: 'Voucher giảm 50% tên miền .id.vn!', color: 'red'},
+            {icon: '📘', text: 'Ebook: Cách viết CV online chuẩn ATS', color: 'green'},
+            {icon: '🎨', text: 'Template Landing Page Giáng sinh miễn phí', color: 'gold'},
+            {icon: '🧦', text: 'Giải đặc biệt: Đôi tất thật in logo .id.vn!', color: 'red'}
         ];
 
         function shakeTree() {
             const tree = document.getElementById('tree');
             tree.classList.add('shake');
-            setTimeout(() => tree.classList.remove('shake'), 500);
+            setTimeout(() => tree.classList.remove('shake'), 800);
 
             const container = document.getElementById('tree-container');
-            const randomGift = gifts[Math.floor(Math.random() * gifts.length)];
-            const giftEl = document.createElement('div');
-            giftEl.className = 'gift';
-            giftEl.style.left = Math.random() * 200 + 50 + 'px';
-            giftEl.innerHTML = randomGift.icon;
-            container.appendChild(giftEl);
+            const numGifts = Math.floor(Math.random() * 3) + 3;
 
+            for(let i = 0; i < numGifts; i++) {
+                const randomGift = gifts[Math.floor(Math.random() * gifts.length)];
+                const giftEl = document.createElement('div');
+                giftEl.className = `gift ${randomGift.color}`;
+                giftEl.style.left = Math.random() * 300 + 50 + 'px';
+                giftEl.style.animationDelay = Math.random() * 0.5 + 's';
+                giftEl.innerHTML = randomGift.icon;
+                container.appendChild(giftEl);
+
+                setTimeout(() => giftEl.remove(), 4500);
+            }
+
+            const mainGift = gifts[Math.floor(Math.random() * gifts.length)];
             setTimeout(() => {
-                document.getElementById('result').innerHTML = `<strong>Chúc mừng! Bạn nhận được: ${randomGift.text}</strong>`;
-                giftEl.remove();
-            }, 3000);
+                document.getElementById('result').innerHTML = `<strong>Chúc mừng! Bạn nhận được: ${mainGift.text}</strong>`;
+            }, 2000);
         }
     </script>
 </body>
